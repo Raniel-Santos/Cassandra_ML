@@ -4,6 +4,10 @@ from buscas.buscaCliente import buscar_cliente_id, buscar_clientes
 from buscas.buscaCompras import buscar_compra_id, buscar_compras
 from buscas.buscaProdutos import busca_produtos, buscar_produto_id
 from buscas.buscaVendedor import buscar_vendedor_id, buscar_vendedores
+from exclusões.deletarCliente import excluir_cliente
+from exclusões.deletarCompra import excluir_compra
+from exclusões.deletarProduto import excluir_produto
+from exclusões.deletarVendedor import excluir_vendedor
 
 ##Import de Componentes
 from inserts.insertCliente import inserir_cliente
@@ -39,6 +43,10 @@ if row:
                 [10] Buscar Produtos por ID
                 [11] Buscar Compras
                 [12] Buscar Compras por ID
+                [13] Excluir Cliente
+                [14] Excluir Vendedor
+                [15] Excluir Produto
+                [16] Excluir Compra
             ''')
         
         opcao = input(str('Escolha uma das opções acima: '))
@@ -67,6 +75,14 @@ if row:
                 buscar_compras(session)  
             case 12:
                 buscar_compra_id(session)
+            case 13:
+                excluir_cliente(session)
+            case 14:
+                excluir_vendedor(session)
+            case 15:
+                excluir_produto(session)
+            case 16:
+                excluir_compra(session)
             # case 0:
                 print('Até a próxima =)')
                 execucao = False
