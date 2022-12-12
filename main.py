@@ -14,6 +14,9 @@ from inserts.insertCliente import inserir_cliente
 from inserts.insertCompra import inserir_compra
 from inserts.insertProduto import inserir_produtos
 from inserts.insertVendedor import insert_vendedor
+from updates.updateCliente import update_cliente
+from updates.updateProduto import update_produto
+from updates.updateVendedor import update_vendedor
 
 cloud_config= {
         'secure_connect_bundle': 'secure-connect-cassandra.zip'
@@ -47,6 +50,10 @@ if row:
                 [14] Excluir Vendedor
                 [15] Excluir Produto
                 [16] Excluir Compra
+                [17] Update Cliente
+                [18] Update Vendedor
+                [19] Update Produto
+                [0] Sair
             ''')
         
         opcao = input(str('Escolha uma das opções acima: '))
@@ -83,7 +90,13 @@ if row:
                 excluir_produto(session)
             case 16:
                 excluir_compra(session)
-            # case 0:
+            case 17:
+                update_cliente(session)
+            case 18:
+                update_vendedor(session)
+            case 19:
+                update_produto(session)
+            case 0:
                 print('Até a próxima =)')
                 execucao = False
             case _:
